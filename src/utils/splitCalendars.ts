@@ -1,4 +1,4 @@
-import { CalendarStateEnum, type Calendar } from "../graphql/calendars";
+import { CalendarState, type Calendar } from "../graphql/calendars";
 
 export interface SplitCalendarsResult {
   current: Calendar[];
@@ -10,9 +10,9 @@ export const splitCalendars = (calendars: Calendar[]): SplitCalendarsResult => {
   const again: Calendar[] = [];
 
   for (const cal of calendars) {
-    if (cal.state === CalendarStateEnum.Open) {
+    if (cal.state === CalendarState.Open) {
       current.push(cal);
-    } else if (cal.state !== CalendarStateEnum.Canceled) {
+    } else if (cal.state !== CalendarState.Canceled) {
       again.push(cal);
     }
   }

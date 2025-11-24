@@ -1,9 +1,7 @@
 import { gql } from '@apollo/client';
 import { TypedDocumentNode } from '@graphql-typed-document-node/core';
 
-export type CalendarState = 'Open' | 'Paid' | 'Canceled' | 'Storno' | 'Test';
-
-export enum CalendarStateEnum {
+export enum CalendarState {
   Open = 'Open',
   Paid = 'Paid',
   Canceled = 'Canceled',

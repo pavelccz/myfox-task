@@ -3,7 +3,7 @@ import { styled, css } from 'styled-components';
 import { formatDate, formatDateTime, formatPriceCZK } from '../../utils/formatters';
 import { PrimaryButton, SecondaryButton } from '../../ui/Button';
 import { DropdownMenu, MenuItemButton, MenuWrapper } from '../../ui/Menu';
-import { Calendar, CalendarStateEnum } from '../../graphql/calendars';
+import { Calendar, CalendarState } from '../../graphql/calendars';
 import { usePhotoUrl } from "../../hooks/usePhotoUrl";
 import { microSiteFormUrl } from '../../config';
 
@@ -22,7 +22,7 @@ export const ReservationCard: React.FC<ReservationCardProps> = ({
   const mainCart = calendar.carts?.[0];
   const item = mainCart?.item;
 
-  const isOpen = calendar.state === CalendarStateEnum.Open;
+  const isOpen = calendar.state === CalendarState.Open;
 
   // Event image: first cart item picture → subject logo
   const pictureSecret = item?.picture?.secret ?? calendar.subject?.microsite?.logo?.secret;
